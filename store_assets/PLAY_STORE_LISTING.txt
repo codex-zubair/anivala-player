@@ -10,7 +10,7 @@ APP IDENTITY
 App name (max 30):            AniLoom
                               (7 characters)
 
-Package name (permanent):     com.anivala.watchanimetv
+Package name (permanent):     com.codexzubair.aniloom
 
 Default language:             English (United States) - en-US
 

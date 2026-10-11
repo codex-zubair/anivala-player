@@ -4,7 +4,7 @@ ANILOOM - WORK PROGRESS / HANDOFF
 App:        AniLoom
 Subtitle:   100% Offline Local Anime & Video Player
 Company:    codex-zubair
-Package:    com.anivala.watchanimetv
+Package:    com.codexzubair.aniloom
 Repo:       git@github.com:codex-zubair/anivala-player.git
 Platform:   Android + Android TV only (Play Store)
 Version:    1.0.0+1
@@ -29,7 +29,7 @@ no tracking. All data stays on-device.
 ========================================================================
 DONE:
   [x] Flutter project scaffolded (org com.anivala, project watchanimetv,
-      android only) -> applicationId com.anivala.watchanimetv
+      android only) -> applicationId com.codexzubair.aniloom
   [x] Pure-Dart engine: lib/core/{app_info,formatters,media_item,
       media_library,resume_entry}.dart  (no Flutter imports where practical)
   [x] Services: library_store.dart (SharedPreferences), media_scanner.dart
@@ -66,7 +66,7 @@ PENDING:
 ========================================================================
 - Name chosen: "AniLoom" (Play/App Store search showed no exact match;
   a formal trademark check is still advisable before publishing).
-- Package: com.anivala.watchanimetv (as requested by the user; permanent).
+- Package: com.codexzubair.aniloom (as requested by the user; permanent).
 - GitHub owner: codex-zubair (existing account, existing SSH key).
 - Scope v1.0: local scan + play + Continue Watching. Android + Android TV.
 - No backend. No INTERNET permission. No ads, no analytics.
@@ -191,7 +191,7 @@ To update: edit privacy-policy/index.html then run
 10. CHANGELOG
 ========================================================================
 2026-10-11  Initial build.
-  - Scaffolded project (com.anivala.watchanimetv), engine, services, state.
+  - Scaffolded project (com.codexzubair.aniloom), engine, services, state.
   - Wrote UI (Continue Watching, Library, Player, Settings, About) with a
     dark theme, plus Android TV support.
   - Pure-python icon generator + headless-Chrome store graphics generator.

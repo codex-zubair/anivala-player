@@ -13,7 +13,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.anivala.watchanimetv"
+    namespace = "com.codexzubair.aniloom"
     compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
@@ -23,7 +23,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.anivala.watchanimetv"
+        applicationId = "com.codexzubair.aniloom"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

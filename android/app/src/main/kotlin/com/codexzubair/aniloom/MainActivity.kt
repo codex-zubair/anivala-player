@@ -1,4 +1,4 @@
-package com.anivala.watchanimetv
+package com.codexzubair.aniloom
 
 import android.content.ContentUris
 import android.provider.MediaStore
@@ -8,7 +8,7 @@ import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
 
-    private val channelName = "com.anivala.watchanimetv/scanner"
+    private val channelName = "com.codexzubair.aniloom/scanner"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)

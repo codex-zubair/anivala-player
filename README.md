@@ -7,10 +7,11 @@ remembers exactly where you left off with an automated **Continue Watching**
 dashboard. It has no backend, requests **no INTERNET permission**, contains no
 ads and no analytics, and never connects to the network.
 
-- Package: `com.anivala.watchanimetv`
+- Package: `com.codexzubair.aniloom`
 - Privacy policy: https://codex-zubair.github.io/all_privacy_policy/aniloom/
 - Category: Video Players & Editors
 - Platform: Android (min SDK 24) + Android TV
+- Status: **personal use** (not published to the Play Store)
 
 ## Features
 

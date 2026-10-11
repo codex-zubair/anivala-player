@@ -8,7 +8,7 @@ class AppInfo {
   static const String tagline = 'Offline Anime & Video Player';
   static const String company = 'codex-zubair';
   static const String version = '1.0.0';
-  static const String packageName = 'com.anivala.watchanimetv';
+  static const String packageName = 'com.codexzubair.aniloom';
 
   /// Hosted privacy policy (central GitHub Pages site for all factory apps).
   static const String privacyPolicyUrl =

@@ -28,7 +28,7 @@ class MediaScanner {
   const MediaScanner._();
 
   static const MethodChannel _channel =
-      MethodChannel('com.anivala.watchanimetv/scanner');
+      MethodChannel('com.codexzubair.aniloom/scanner');
 
   /// Ensures the appropriate media permission is granted (or granted via the
   /// system dialog). Returns true when scanning is allowed.
