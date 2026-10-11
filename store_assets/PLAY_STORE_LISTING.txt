@@ -1,0 +1,227 @@
+========================================================================
+ANILOOM - GOOGLE PLAY STORE LISTING CONTENT
+========================================================================
+Copy/paste these values directly into the Play Console.
+Character limits are noted; all values are within limits.
+
+========================================================================
+APP IDENTITY
+========================================================================
+App name (max 30):            AniLoom
+                              (7 characters)
+
+Package name (permanent):     com.anivala.watchanimetv
+
+Default language:             English (United States) - en-US
+
+App category:                 Video Players & Editors
+Tags (max 5):                 Video player, Offline, Anime, Media library,
+                              Continue watching
+
+Contact email:                iam.nmzar@gmail.com
+Contact website (optional):   https://github.com/codex-zubair
+Contact phone (optional):     (leave blank)
+
+Privacy policy URL:           https://codex-zubair.github.io/all_privacy_policy/aniloom/
+
+========================================================================
+STORE LISTING TEXT
+========================================================================
+
+--- Short description (max 80) ---
+Play your local anime & videos offline. No ads, no tracking, no internet.
+(76 characters)
+
+--- Full description (max 4000) ---
+AniLoom is a fast, clean, fully offline video player for your own anime and
+animation collection on Android phones, tablets and Android TV. It scans the
+video files already stored on your device and plays them with a smooth,
+distraction-free player. No internet connection is ever required.
+
+PRIVATE BY DESIGN
+AniLoom requests no INTERNET permission at all. It is technically incapable
+of connecting to the network, so your library and viewing habits can never
+leave your device. There are no ads, no analytics and no trackers.
+
+CONTINUE WATCHING
+AniLoom remembers exactly where you stopped in every video and shows a
+"Continue Watching" dashboard the moment you open the app. Tap any card to
+resume from the precise second you left off. Positions are saved locally and
+automatically.
+
+YOUR LOCAL LIBRARY
+- Scans your device with Android's scoped media permission (READ_MEDIA_VIDEO).
+- Groups videos by folder so series stay together.
+- Search your whole library instantly.
+- Grid or list view, whichever you prefer.
+- Supports MP4, MKV, WEBM, AVI, MOV, M4V, TS, FLV, WMV, MPEG and more.
+
+A PLAYER BUILT FOR WATCHING
+- Smooth hardware-accelerated playback.
+- Built-in gesture controls and a clean touchseek bar.
+- Skip back 10 seconds or forward 10 seconds with a double tap.
+- Auto-hiding controls for a full-screen experience.
+- Landscape and portrait support.
+
+MADE FOR ANDROID TV
+- Android TV launcher support with a dedicated TV banner.
+- Works without a touchscreen, driven by the D-pad remote.
+
+PRIVACY AT A GLANCE
+- No internet permission, no ads, no analytics.
+- Only reads your media; it never modifies or deletes your files.
+- Library index, Continue Watching history and preferences are stored only
+  in the app's private storage on your device.
+- Clear your data any time from the in-app Settings screen, or by
+  uninstalling the app.
+
+Read the full privacy policy at the link on this listing.
+
+Open source
+AniLoom's source code is public at
+https://github.com/codex-zubair/anivala-player
+
+Built by codex-zubair.
+
+========================================================================
+DATA SAFETY FORM (Play Console -> App content -> Data safety)
+========================================================================
+Answer exactly as follows.
+
+Does your app collect or share any of the required user data types?
+  -> No
+
+Is all of the user data collected by your app encrypted in transit?
+  -> N/A (no data collected) - if forced, answer "No".
+
+Do you provide a way for users to request that their data is deleted?
+  -> No (because no data is collected). Optionally note: the app provides an
+     in-app "Clear Continue Watching" action and stores everything locally.
+
+Data types: leave every category unchecked (Location, Personal info,
+Financial info, Health, Messages, Photos and videos, Files and docs,
+Calendar, Contacts, App activity, Web browsing, App info and performance,
+Device or other IDs).
+
+Additional:
+  - "Is your app's data collection practice covered by a privacy policy?"
+    -> Yes, provide the privacy policy URL above.
+  - "Has your app been independently validated?" -> No.
+
+Result summary shown to users: "No data collected" and "No data shared".
+This matches the app: no INTERNET permission, no analytics, no ads.
+
+IMPORTANT nuance for the "Photos and videos" data type:
+  AniLoom does NOT collect or share your photos/videos (nothing leaves the
+  device). Reading local media to play it is not "collection" under the Data
+  safety definition when the data is not transmitted off-device. Leave the
+  category UNCHECKED. If the console's interview shows a specific file/media
+  access question, answer that data is processed on-device only and not
+  collected.
+
+========================================================================
+APP CONTENT QUESTIONNAIRES
+========================================================================
+
+1. Privacy policy
+   -> Provide the URL above.
+
+2. Ads
+   -> No, the app does not contain ads.
+
+3. App access
+   -> All functionality is available without restrictions. (No login.)
+      Note: the app requires the user to grant media read permission to scan,
+      which is a normal runtime permission, not a login.
+
+4. Content rating questionnaire
+   -> Category: "Utility, Productivity, Communication, or Other"
+   -> Answer "No" to every sensitive-content question (violence, sexuality,
+      language, controlled substances, gambling, etc.).
+   Expected result: Rated for everyone / 3+.
+
+5. Target audience
+   -> Age groups: 13+ (or 18+ if you prefer). Do NOT select under 13 unless
+      you also complete the Families policy requirements.
+   -> "Is the app designed for children?" -> No.
+
+6. News app
+   -> No.
+
+7. COVID-19 contact tracing / status apps
+   -> No.
+
+8. Government app
+   -> No.
+
+9. Financial features
+   -> None.
+
+10. Health
+   -> No.
+
+11. Data safety
+   -> See the Data Safety section above.
+
+========================================================================
+PERMISSIONS DECLARATION (Play Console -> App content -> sensitive perms)
+========================================================================
+AniLoom declares ONLY these Android permissions:
+  - android.permission.READ_MEDIA_VIDEO     (Android 13+; read local videos)
+  - android.permission.READ_EXTERNAL_STORAGE (Android 12 and below; media read)
+  - android.permission.WAKE_LOCK            (keep screen on during playback)
+
+It explicitly REMOVES any network permission:
+  - android.permission.INTERNET           (tools:node="remove")
+  - android.permission.ACCESS_NETWORK_STATE (tools:node="remove")
+
+There is NO location, camera, microphone, contacts, phone, SMS, or AD_ID
+permission, and NO MANAGE_EXTERNAL_STORAGE ("All files access"). Because of
+this the Play Console will not require an "All files access" declaration and
+the app qualifies for the "No data collected" data safety label.
+
+========================================================================
+STORE ASSETS (files provided)
+========================================================================
+App icon (512 x 512 PNG, 32-bit):
+  assets/images/play_icon_512.png
+
+Feature graphic (1024 x 500 PNG):
+  store_assets/graphics/feature_graphic_1024x500.png
+
+Phone screenshots (1080 x 1920 PNG, minimum 2 required, 8 max):
+  store_assets/screenshots/01_continue_watching.png
+  store_assets/screenshots/02_player.png
+  store_assets/screenshots/03_library_grid.png
+  store_assets/screenshots/04_library_list.png
+  store_assets/screenshots/05_about_privacy.png
+
+Android TV banner (320 x 180 PNG, bundled in the app):
+  android/app/src/main/res/drawable-xhdpi/tv_banner.png
+
+Optional (not required): 7-inch and 10-inch tablet screenshots. The phone
+screenshots above are sufficient for a first release; AniLoom also runs on
+Android TV (the same screenshots can be reused, or a TV-specific set added
+later).
+
+========================================================================
+RELEASE NOTES (for "What's new" - first release)
+========================================================================
+First release.
+
+- Fully offline local anime & video player for Android and Android TV.
+- Automated Continue Watching dashboard that resumes exactly where you left off.
+- Scans your device with scoped media access; groups by folder; instant search.
+- Grid and list layouts; clean gesture-driven player.
+- No internet permission, no ads, no trackers.
+
+========================================================================
+VERSIONING (for future updates)
+========================================================================
+Current: versionName 1.0.0, versionCode 1.
+To ship an update, edit pubspec.yaml:
+  version: 1.0.1+2        # name 1.0.1, code 2 (code must always increase)
+Then rebuild:
+  flutter build appbundle --release
+and upload the new AAB to the same app in Play Console.
+========================================================================

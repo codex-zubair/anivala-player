@@ -1,6 +1,16 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- AniLoom reads only local video files. It does NOT request INTERNET. -->
+
+    <!-- Explicitly remove any network permission a transitive plugin might
+         merge in. AniLoom is fully offline and must never access the network. -->
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:node="remove" />
 
     <!-- Android 13+ (API 33+): scoped access to video files only. -->
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />

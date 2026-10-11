@@ -1,0 +1,204 @@
+========================================================================
+ANILOOM - WORK PROGRESS / HANDOFF
+========================================================================
+App:        AniLoom
+Subtitle:   100% Offline Local Anime & Video Player
+Company:    codex-zubair
+Package:    com.anivala.watchanimetv
+Repo:       git@github.com:codex-zubair/anivala-player.git
+Platform:   Android + Android TV only (Play Store)
+Version:    1.0.0+1
+Last updated: 2026-10-11
+
+READ THIS FIRST. Keep it updated: current state, what is done, what is
+pending, commands, blockers.
+
+========================================================================
+1. GOAL
+========================================================================
+Ship a free, ad-free, 100% offline local media player for Android and Android
+TV that scans and plays animation/video files already stored on the user's
+device, with an automated "Continue Watching" dashboard that remembers
+playback positions locally. No backend, no network, no accounts.
+
+Policy-compliant posture: no INTERNET permission, no ads, no analytics,
+no tracking. All data stays on-device.
+
+========================================================================
+2. STATUS
+========================================================================
+DONE:
+  [x] Flutter project scaffolded (org com.anivala, project watchanimetv,
+      android only) -> applicationId com.anivala.watchanimetv
+  [x] Pure-Dart engine: lib/core/{app_info,formatters,media_item,
+      media_library,resume_entry}.dart  (no Flutter imports where practical)
+  [x] Services: library_store.dart (SharedPreferences), media_scanner.dart
+      (MediaStore via platform channel + permission_handler)
+  [x] State: state/library_state.dart (ChangeNotifier + provider)
+  [x] UI: Continue Watching dashboard, Library (grid/list + search + scan),
+      Player (video_player, gestures, auto-resume), Settings, About
+  [x] Android TV support: LEANBACK_LAUNCHER intent, 320x180 tv_banner,
+      touchscreen not required
+  [x] Network permissions explicitly removed (INTERNET, ACCESS_NETWORK_STATE)
+  [x] flutter analyze: 0 issues
+  [x] flutter test: 29/29 passed (formatters, media_library, resume_entry,
+      widget smoke tests)
+  [x] Branding: pure-python icon generator -> app icon, adaptive foreground,
+      splash, Play 512 icon; native splash; launcher icons
+  [x] Store graphics: feature graphic 1024x500 + 5 phone screenshots 1080x1920
+  [x] Release signing keystore + build.gradle.kts release config + R8 rules
+  [x] Release AAB built + signed (55.6 MB, jar verified)
+  [x] Release APK built + signed (54.2 MB)
+  [x] Keystore + credentials backed up to
+      /mnt/external_disk/ALL-APP-KEYS/AniLoom/ (jks, key.properties, README)
+  [x] Privacy policy tailored and LIVE (HTTP 200):
+      https://codex-zubair.github.io/all_privacy_policy/aniloom/
+  [x] Store listing copy: store_assets/PLAY_STORE_LISTING.txt
+  [x] Full publishing guide: store_assets/PUBLISHING_GUIDE.txt
+  [x] git init + committed locally on branch main
+PENDING:
+  [ ] Push to github.com/codex-zubair/anivala-player (remote add + push)
+  [ ] Play Console: create app, upload AAB, store listing, data safety
+  [ ] Device/TV smoke test (install APK when a device is connected)
+
+========================================================================
+3. KEY FACTS / DECISIONS
+========================================================================
+- Name chosen: "AniLoom" (Play/App Store search showed no exact match;
+  a formal trademark check is still advisable before publishing).
+- Package: com.anivala.watchanimetv (as requested by the user; permanent).
+- GitHub owner: codex-zubair (existing account, existing SSH key).
+- Scope v1.0: local scan + play + Continue Watching. Android + Android TV.
+- No backend. No INTERNET permission. No ads, no analytics.
+- Storage access: scoped READ_MEDIA_VIDEO (Android 13+) /
+  READ_EXTERNAL_STORAGE (<=12). NO MANAGE_EXTERNAL_STORAGE.
+- Local storage uses shared_preferences only (library index + resume).
+- Signing keystore is git-ignored; password stored in android/key.properties
+  (also git-ignored). KEEP THE .jks SAFE - losing it blocks Play updates.
+
+========================================================================
+4. PROJECT LAYOUT
+========================================================================
+lib/
+  core/          Pure Dart (the showcase)
+    app_info.dart      Brand/links constants (incl. privacy URL)
+    formatters.dart    duration / bytes / relative-time formatting
+    media_item.dart    MediaItem model + JSON
+    media_library.dart scanning/filtering/grouping/search/anime heuristic
+    resume_entry.dart  ResumeEntry + ContinueWatching logic
+  services/
+    library_store.dart SharedPreferences persistence
+    media_scanner.dart MediaStore platform channel + permissions
+  state/
+    library_state.dart ChangeNotifier
+  screens/
+    root_shell.dart, continue_watching_screen.dart, library_screen.dart,
+    player_screen.dart, settings_screen.dart, about_screen.dart
+  widgets/  brand.dart, media_card.dart
+  theme/    app_theme.dart
+test/       formatters_test, media_library_test, resume_entry_test,
+            widget_test
+tool/       gen_icons.py (pure python PNG), make_graphics.py (headless
+            Chrome store graphics + TV banner)
+android/
+  app/src/main/AndroidManifest.xml    permissions + leanback
+  app/src/main/kotlin/.../MainActivity.kt  MediaStore query channel
+  app/src/main/res/drawable-xhdpi/tv_banner.png
+  app/build.gradle.kts                compileSdk 37, release signing, R8
+  app/proguard-rules.pro
+store_assets/  PLAY_STORE_LISTING.txt, PUBLISHING_GUIDE.txt,
+               graphics/, screenshots/
+privacy-policy/index.html  (source of the live policy)
+
+========================================================================
+5. COMMANDS
+========================================================================
+Setup:
+  cd /home/codex-zubair/Desktop/APPS/aniloom
+  flutter pub get
+
+Quality:
+  flutter analyze
+  flutter test
+
+Build:
+  flutter build appbundle --release
+  # output: build/app/outputs/bundle/release/app-release.aab
+  flutter build apk --release          # sideload APK / Android TV
+
+Assets:
+  python3 tool/gen_icons.py            # regenerate icon art
+  dart run flutter_launcher_icons
+  dart run flutter_native_splash:create
+  python3 tool/make_graphics.py        # feature graphic + screenshots + banner
+
+Git (first push):
+  git remote add origin git@github.com:codex-zubair/anivala-player.git
+  git push -u origin main
+
+========================================================================
+6. SIGNING
+========================================================================
+Keystore: android/aniloom-release.jks  (git-ignored)
+Alias:    aniloom
+Pass:     aniloom2026key   (in android/key.properties, git-ignored)
+DN:       CN=codex-zubair, OU=Mobile, O=codex-zubair, L=City, ST=State, C=US
+SHA1:     B9:E1:03:CD:A3:21:3E:6E:AB:DB:36:F7:AA:49:14:6F:C7:A4:76:25
+SHA256:   01:5C:03:8F:14:A9:4D:2E:5A:FD:2B:45:1D:FE:2C:ED:3C:2D:17:D8:
+          54:3B:85:35:A3:D0:7A:68:7A:85:2C:52
+
+IMPORTANT: back up the .jks + key.properties somewhere safe. If lost, you
+cannot publish updates to the same Play listing.
+
+========================================================================
+7. PRIVACY POLICY
+========================================================================
+File:  privacy-policy/index.html
+URL:   https://codex-zubair.github.io/all_privacy_policy/aniloom/  (LIVE 200)
+AppInfo.privacyPolicyUrl in lib/core/app_info.dart is set to this URL.
+
+To update: edit privacy-policy/index.html then run
+  bash ~/Desktop/APPS/_factory/bin/publish_privacy_policy.sh aniloom \
+      "$(pwd)/privacy-policy/index.html" "AniLoom" "Offline anime & video player"
+
+========================================================================
+8. PENDING WORK / NEXT SESSION
+========================================================================
+1. git remote add origin git@github.com:codex-zubair/anivala-player.git
+   git push -u origin main
+2. Create Play Console listing:
+   - App name: AniLoom
+   - Short desc: Play your local anime & videos offline. No ads, no tracking, no internet.
+   - Upload app-release.aab to internal testing, then production.
+   - Data safety form: "No data collected" (matches policy).
+   - Content rating questionnaire (utility).
+3. Optional: add Android TV form factor.
+4. Optional v1.1 ideas: folder picker (SAF) for custom libraries, subtitle
+   selection, playback speed, PiP, theme toggle, "up next" queue.
+
+========================================================================
+9. VERIFIED WORKING (this session)
+========================================================================
+- flutter analyze: No issues found
+- flutter test: 29/29 passed
+- flutter build appbundle --release: SUCCESS (55.6 MB), jar verified
+- flutter build apk --release: SUCCESS (54.2 MB), apksigner verified
+- Privacy URL: 200
+- APK badging: only READ_MEDIA_VIDEO, READ_EXTERNAL_STORAGE (max 32),
+  WAKE_LOCK perms; INTERNET + ACCESS_NETWORK_STATE removed.
+
+========================================================================
+10. CHANGELOG
+========================================================================
+2026-10-11  Initial build.
+  - Scaffolded project (com.anivala.watchanimetv), engine, services, state.
+  - Wrote UI (Continue Watching, Library, Player, Settings, About) with a
+    dark theme, plus Android TV support.
+  - Pure-python icon generator + headless-Chrome store graphics generator.
+  - 29 tests passing; analyze clean.
+  - Release keystore created; R8 rules added.
+  - Release AAB + APK built and signed; keystore backed up.
+  - Privacy policy published to the central repo (live 200).
+  - Store listing, publishing guide and this handoff written.
+  - Committed locally on main (push pending).
+========================================================================
